@@ -28,6 +28,11 @@ function Form() {
   const [gender, setGender] = useState("");
   const [bloodAlcoholLevel, setBloodAlcoholLevel] = useState(0);
 
+  //Prevents reload if submitting form via enter
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   //Function to calculate blood alocohol level
   const CalculateBloodAlcoholLevel = () => {
     if (gender === "1" || gender === "2") {
@@ -71,7 +76,7 @@ function Form() {
 
   return (
     <div className="form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-row">
           <label>Weight: </label>
           <input
